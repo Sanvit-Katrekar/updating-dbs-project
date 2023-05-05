@@ -1,0 +1,79 @@
+<div mat-dialog-title>
+    <h1>Employee Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Employee ID</mat-label>
+                <input matInput type="text" placeholder="Ex. 504" formControlName="e_id">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Full name</mat-label>
+                <input matInput type="text" placeholder="Ex. Technical" formControlName="full_name">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Join date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="join_date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput type="text" placeholder="Ex. +9715473838" formControlName="phone">
+            </mat-form-field>
+        </div>
+
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Emirates ID</mat-label>
+                <input matInput placeholder="Ex. +9715473838" formControlName="emirates_id">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Nationality ID</mat-label>
+                <input matInput placeholder="Ex. IND" formControlName="nationality_id">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Designation</mat-label>
+                <input matInput placeholder="Ex. Associate Professor "formControlName="designation">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Ex. The Gardens, Jebel Ali" formControlName="address">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Salary/yr</mat-label>
+                <input matInput type="number" placeholder="Ex. 10000" formControlName="yearly_salary">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label> Management </mat-label>
+                <input matInput placeholder="Ex. CS "formControlName="management">
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>

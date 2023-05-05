@@ -1,0 +1,73 @@
+<div mat-dialog-title>
+    <h1>Student Form</h1>
+</div>
+<form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Student ID</mat-label>
+                <input matInput type="text" placeholder="Ex. 2021A7PS0059U" formControlName="s_id">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Full name</mat-label>
+                <input matInput type="text" placeholder="Ex. Sanvit Katrekar" formControlName="full_name">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Join date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="join_date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput type="text" placeholder="Ex. +9715473838" formControlName="phone">
+            </mat-form-field>
+        </div>
+
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Emirates ID</mat-label>
+                <input matInput placeholder="Ex. +9715473838" formControlName="emirates_id">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Nationality ID</mat-label>
+                <input matInput placeholder="Ex. IND" formControlName="nationality_id">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Passport number</mat-label>
+                <input matInput placeholder="Ex. 0942034"formControlName="passport_no">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Ex. The Gardens, Jebel Ali" formControlName="address">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-radio-group aria-label="Select an option" formControlName="is_hosteler">
+                <mat-radio-button value="0">Day Scholar</mat-radio-button>
+                <mat-radio-button value="1">Hostler</mat-radio-button>
+              </mat-radio-group>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>
