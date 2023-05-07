@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EmpAddEditComponent } from '../emp-add-edit/emp-add-edit.component';
 import { EmployeeService } from '../services/employee.service';
@@ -48,11 +48,14 @@ export class RootAdminComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   dataSource2!: MatTableDataSource<any>;
 
+  @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
+  @ViewChildren(MatSort) sort = new QueryList<MatSort>();
+  /*
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
   @ViewChild(MatPaginator) paginator2!: MatPaginator;
   @ViewChild(MatSort) sort2!: MatSort;
+  */
 
   constructor(
     private _dialog: MatDialog,
@@ -64,7 +67,7 @@ export class RootAdminComponent implements OnInit {
   ngOnInit(): void {
     console.log("Getting employee list: ")
     this.getEmployeeList();
-    // this.getStudentList();
+    this.getStudentList();
   }
 
   openAddEditEmpForm() {
@@ -91,9 +94,18 @@ export class RootAdminComponent implements OnInit {
   getEmployeeList() {
     this._empService.getEmployeeList().subscribe({
       next: (res) => {
+        for (let emp of res.data) {
+          if (!emp.management) {
+            emp.management = "Not Assigned";
+          }
+        }
         this.dataSource = new MatTableDataSource(res.data);
+        /*
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+        */
+       this.dataSource.sort = this.sort.toArray()[0];
+       this.dataSource.paginator = this.paginator.toArray()[0]
       },
       error: console.log,
     });
@@ -102,8 +114,8 @@ export class RootAdminComponent implements OnInit {
     this._studentService.getStudentList().subscribe({
       next: (res) => {
         this.dataSource2 = new MatTableDataSource(res.data);
-        this.dataSource2.sort = this.sort2;
-        this.dataSource2.paginator = this.paginator2;
+        this.dataSource2.sort = this.sort.toArray()[1];
+        this.dataSource2.paginator = this.paginator.toArray()[1];
       },
       error: console.log,
     });
@@ -172,5 +184,15 @@ export class RootAdminComponent implements OnInit {
       },
     });
   }
+  /*
+  getCountryList() {
+    this._coreService.getCountryList().subscribe({
+      next: (res) => {
+        this.countries = res.data;
+      },
+      error: console.log,
+    });
+  }
+  */
 }
 

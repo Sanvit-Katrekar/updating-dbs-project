@@ -12,6 +12,7 @@ import { StudentService } from '../services/student.service';
 export class StudentAddEditComponent implements OnInit {
   studentForm: FormGroup;
 
+  /*
   education: string[] = [
     'Matric',
     'Diploma',
@@ -19,6 +20,7 @@ export class StudentAddEditComponent implements OnInit {
     'Graduate',
     'Post Graduate',
   ];
+  */
 
   constructor(
     private _fb: FormBuilder,

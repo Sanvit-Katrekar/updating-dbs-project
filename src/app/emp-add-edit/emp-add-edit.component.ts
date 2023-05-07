@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CoreService } from '../core/core.service';
 import { EmployeeService } from '../services/employee.service';
+import {AbstractControl, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-emp-add-edit',
@@ -12,13 +13,27 @@ import { EmployeeService } from '../services/employee.service';
 export class EmpAddEditComponent implements OnInit {
   empForm: FormGroup;
 
-  education: string[] = [
-    'Matric',
-    'Diploma',
-    'Intermediate',
-    'Graduate',
-    'Post Graduate',
-  ];
+  managements: string[] = [
+    'Not Assigned',
+    'library',
+    'academics',
+    'hostel',
+    'canteen'
+  ]
+
+  /*
+  countries = [
+    {
+      "n_id": "IND",
+      "nationality": "India"
+    },
+    {
+      "n_id": "ARE",
+      "nationality": "UAE"
+    }
+  ]
+  */
+  countries: any;
 
   constructor(
     private _fb: FormBuilder,
@@ -28,11 +43,11 @@ export class EmpAddEditComponent implements OnInit {
     private _coreService: CoreService
   ) {
     this.empForm = this._fb.group({
-      e_id: '',
+      e_id: ['', Validators.required],
       full_name: '',
-      email: '',
-      phone: '',
-      emirates_id: '',
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
+      emirates_id: ['', Validators.required],
       nationality_id: '',
       designation: '',
       address: '',
@@ -44,6 +59,11 @@ export class EmpAddEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.empForm.patchValue(this.data);
+    this._coreService.getCountryList().subscribe({
+      next: (res) => {
+        this.countries = res.data;
+      }
+    })
   }
 
   onFormSubmit() {

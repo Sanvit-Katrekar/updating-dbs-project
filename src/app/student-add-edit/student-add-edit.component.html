@@ -59,7 +59,7 @@
                 <input matInput placeholder="Ex. The Gardens, Jebel Ali" formControlName="address">
             </mat-form-field>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="!data">
             <mat-radio-group aria-label="Select an option" formControlName="is_hosteler">
                 <mat-radio-button value="0">Day Scholar</mat-radio-button>
                 <mat-radio-button value="1">Hostler</mat-radio-button>

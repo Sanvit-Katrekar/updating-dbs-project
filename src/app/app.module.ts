@@ -24,9 +24,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RootAdminComponent } from './root-admin/root-admin.component';
 import { StudentAddEditComponent } from './student-add-edit/student-add-edit.component';
+import { HomeComponent } from './home/home.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
-  declarations: [AppComponent, EmpAddEditComponent, RootAdminComponent, StudentAddEditComponent],
+  declarations: [AppComponent, EmpAddEditComponent, RootAdminComponent, StudentAddEditComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,7 +49,8 @@ import { StudentAddEditComponent } from './student-add-edit/student-add-edit.com
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent],

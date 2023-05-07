@@ -46,13 +46,23 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Nationality ID</mat-label>
-                <input matInput placeholder="Ex. IND" formControlName="nationality_id">
+                <!-- <input matInput placeholder="Ex. IND" formControlName="nationality_id"> -->
+                  <input type="text"
+                         placeholder="Pick one"
+                         matInput
+                         formControlName="nationality_id"
+                         [matAutocomplete]="auto">
+                  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let c of countries" [value]="c.n_id">
+                      {{c.nationality}}
+                    </mat-option>
+                  </mat-autocomplete>
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Designation</mat-label>
-                <input matInput placeholder="Ex. Associate Professor "formControlName="designation">
+                <input matInput placeholder="Ex. Associate Professor " formControlName="designation">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Address</mat-label>
@@ -68,7 +78,11 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label> Management </mat-label>
-                <input matInput placeholder="Ex. CS "formControlName="management">
+                <mat-select #sel formControlName="management">
+                    <mat-option [disabled]="data" *ngFor="let mgmt of managements" [value]="mgmt">
+                      {{mgmt}}
+                    </mat-option>
+                  </mat-select>
             </mat-form-field>
         </div>
     </div>

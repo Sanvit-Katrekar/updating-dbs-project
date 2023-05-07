@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EmpAddEditComponent } from './emp-add-edit/emp-add-edit.component';
@@ -12,7 +13,8 @@ import { CoreService } from './core/core.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+  /*
   title = 'campus-client';
   displayedColumns: string[] = [
     'e_id',
@@ -28,18 +30,6 @@ export class AppComponent implements OnInit {
     'management',
     'action'
   ];
-  /*
-    'Employee ID',
-    'Full name',
-    'Phone',
-    'Emirates ID',
-    'Nationality',
-    'Designation',
-    'Address',
-    'Yearly Salary',
-    'Join Date',
-    'Management',
-  */
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -110,4 +100,5 @@ export class AppComponent implements OnInit {
       },
     });
   }
+  */
 }
