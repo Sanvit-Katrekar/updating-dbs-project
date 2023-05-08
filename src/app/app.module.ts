@@ -26,9 +26,16 @@ import { RootAdminComponent } from './root-admin/root-admin.component';
 import { StudentAddEditComponent } from './student-add-edit/student-add-edit.component';
 import { HomeComponent } from './home/home.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AcademicsAdminComponent } from './academics-admin/academics-admin.component';
+import { LibraryAdminComponent } from './library-admin/library-admin.component';
+import { HostelAdminComponent } from './hostel-admin/hostel-admin.component';
+import { CanteenAdminComponent } from './canteen-admin/canteen-admin.component';
+
+import { MatListModule } from '@angular/material/list';
+import { NgOptimizedImage } from '@angular/common'
 
 @NgModule({
-  declarations: [AppComponent, EmpAddEditComponent, RootAdminComponent, StudentAddEditComponent, HomeComponent],
+  declarations: [AppComponent, EmpAddEditComponent, RootAdminComponent, StudentAddEditComponent, HomeComponent, AcademicsAdminComponent, LibraryAdminComponent, HostelAdminComponent, CanteenAdminComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -50,7 +57,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatSortModule,
     MatSnackBarModule,
     MatTabsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatListModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent],

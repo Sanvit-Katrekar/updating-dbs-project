@@ -1,1 +1,58 @@
-<p>home works!</p>
+<!--
+<button (click)="navigateToAdminSection('root')">Root Admin</button>
+<button (click)="navigateToAdminSection('academics')">Academics Admin</button>
+<button (click)="navigateToAdminSection('library')">Library Admin</button>
+<button (click)="navigateToAdminSection('canteen')">Canteen Admin</button>
+<button (click)="navigateToAdminSection('hostel')">Hostel Admin</button>
+-->
+
+<mat-toolbar color="primary">
+    <span> Campus Management System </span>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="navigateToAdminSection('root')">
+        Campus
+    </button>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="navigateToAdminSection('academics')">
+        Academics
+    </button>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="navigateToAdminSection('library')">
+        Library
+    </button>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="navigateToAdminSection('hostel')">
+        Hostel
+    </button>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="navigateToAdminSection('canteen')">
+        Canteen
+    </button>
+    </mat-toolbar>
+
+<div>
+    <img srcset="assets/campus-img.jpg 1.04x">
+</div>
+
+<div class="container">
+    <p>Select an option below to proceed:</p>
+    
+    <mat-list>
+      <mat-list-item routerLink="/root-admin" routerLinkActive="active-link">
+        <mat-icon mat-list-icon>settings</mat-icon>
+        <span mat-line>Root Admin</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/library-admin" routerLinkActive="active-link">
+        <mat-icon mat-list-icon>book</mat-icon>
+        <span mat-line>Library Admin</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/hostel-admin" routerLinkActive="active-link">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span mat-line>Hostel Admin</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/academics-admin" routerLinkActive="active-link">
+        <mat-icon mat-list-icon>school</mat-icon>
+        <span mat-line>Academics Admin</span>
+      </mat-list-item>
+    </mat-list>
+  </div>

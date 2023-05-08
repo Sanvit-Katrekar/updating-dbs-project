@@ -1,0 +1,47 @@
+.container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+
+  .mat-list-item {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.2s;
+  }
+
+  .mat-list-item:hover {
+    background-color: #e6e6e6;
+  }
+
+  .active-link {
+    background-color: #007bff;
+    color: #fff !important;
+  }
+
+  .mat-icon {
+    color: #007bff;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .mat-line {
+    font-size: 20px;
+    color: #333;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
